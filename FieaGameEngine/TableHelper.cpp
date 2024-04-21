@@ -81,19 +81,18 @@ bool TableHelper::Start(const std::string& key, Json::Value& object, IWrapper* w
 		std::smatch matches;
 		if (std::regex_search(key, matches, pattern)) {
 			if (matches.size() == 2) {
-				if (matches[1] == "AttributedArmoredCore") {
-					Scope* newptr = ScopeFactoryManager::Create(matches[1]);
-					if (newptr) {
-						check->Get()->Adopt(*newptr, matches.suffix());
-						newptr->HeapAdoptAlloc();
-						check->Set(newptr);
-					}
+				Scope* newptr = ScopeFactoryManager::Create(matches[1]);
+				if (newptr) {
+					check->Get()->Adopt(*newptr, matches.suffix());
+					newptr->HeapAdoptAlloc();
+					check->Set(newptr);
 				}
 			}
 		}
 		else
 			check->Set(& check->Get()->AppendScope(key));
 	}
+	
 	return true;
 }
 

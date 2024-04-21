@@ -133,6 +133,11 @@ namespace Fiea::GameEngine {
 			case Mat4:
 				Append(s.Name).SetStorage<glm::mat4x4>((glm::mat4x4*)(ch + s.Offest), s.Size);
 				break;
+			case Table:
+				if (s.Offest == 0 && s.Size == 0) {
+					Append(s.Name);
+				}
+				break;
 			}
 		}
 	}

@@ -106,11 +106,13 @@ bool Fiea::GameEngine::ParseCoordinator::Parse(const std::string& key, Json::Val
 			if (value[i].isObject()) {
 				for (auto h : HelperList) {
 					if (h->Start(key, value[i], AssociatedWrapper, true)) {
-						flag = true;
-						h->End(value,AssociatedWrapper, key);
+						flag = ParseMembers(value[i]);
+						h->End(value[i], AssociatedWrapper, key);
 					}
 				}
-				return ParseMembers(value);
+			}
+			if ((i == value.size() - 1) && value[i].isObject()) {
+				goto L1;
 			}
 		}
 		for (auto h : HelperList) {
@@ -128,6 +130,6 @@ bool Fiea::GameEngine::ParseCoordinator::Parse(const std::string& key, Json::Val
 			}
 		}
 	}
-	return flag;
+	L1: return flag;
 }
 

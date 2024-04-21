@@ -59,8 +59,12 @@ Scope::~Scope() {
 				Scope* scope = datum.GetItemAsValue<Scope*>(datum.Size-1);
 				scope->mParent = nullptr;
 				if (scope) {
-					if(!scope->AdoptedNotCreated)
+					if (!scope->AdoptedNotCreated)
+					{
+						//scope->~Scope();
 						delete(scope);
+
+					}
 				}
 				datum.RemoveAt(datum.Size-1);
 			}
