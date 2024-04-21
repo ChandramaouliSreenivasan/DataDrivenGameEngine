@@ -74,7 +74,17 @@ public:
 					  [0.0, 1.0, 0.0, 0.0],
 					  [0.0, 0.0, 1.0, 0.0],
 					  [0.0, 0.0, 0.0, 1.0]
-					]
+					],
+		"{AttributedArmoredCore}ArmoredCoreChild":{"Name": "ArmoredCore",
+		 "HP": 250,
+		"Attack": 9.5,
+		"Position": [1.0,2.0,3.0,4.0],
+		"Rotation": [
+					  [1.0, 0.0, 0.0, 0.0],
+					  [0.0, 1.0, 0.0, 0.0],
+					  [0.0, 0.0, 1.0, 0.0],
+					  [0.0, 0.0, 0.0, 1.0]
+					]}
 		}}
 		)";
 		std::string check1 = "Attack";

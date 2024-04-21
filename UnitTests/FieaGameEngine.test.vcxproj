@@ -180,6 +180,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Action.test.cpp" />
     <ClCompile Include="Attributed.test.cpp" />
     <ClCompile Include="Datum.test.cpp" />
     <ClCompile Include="Factory.Test.cpp" />
